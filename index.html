@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>A Website that codes itself</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <style id="style"></style>
+    <pre id="show"></pre>
+    
+    <script src="simplify.js" type="text/javascript"></script>
+    <!-- DO NOT REMOVE THE ABOVE SCRIPT TAG -->
+    <script>
+        const style = `
+        /*
+        Hello!
+        Sit back and relax while you watch me code myself
+        */
+
+        /*
+        First of all we need to add some colours to the text and background.
+        With a little bit of css animations.
+        */
+
+        body {
+            background: #222;
+            color: #fff;
+            transition: padding 0.5s ease-in-out;
+            margin: 0px;
+        }
+
+        /*
+        While you are seeing me talking to you, the styling of me is also changing.
+        Now let's style me some more
+        */
+
+        body {
+            padding: 10%;
+            font-family: Helvetica;
+        }
+
+        /*
+        A little more colours
+        */
+
+        pre {
+            background: #333;
+            color: #fff;
+            font-family: Helvetica;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            overflow: auto;
+            max-height: 70vh;
+            white-space: pre-wrap;
+        }
+
+        `;
+
+        window.onload = () => {
+            let char = 0;
+            const styleElement = document.getElementById("style");
+            const showElement = document.getElementById("show");
+
+            setInterval(() => {
+                if (char < style.length) {
+                    styleElement.innerHTML += style.charAt(char);
+                    showElement.innerHTML += style.charAt(char);
+                    window.scrollTo(0, document.body.scrollHeight);
+                    char++;
+                }
+            }, 30);
+        };
+    </script>
+</body>
+</html>
